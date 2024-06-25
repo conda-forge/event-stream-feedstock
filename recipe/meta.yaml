@@ -6,10 +6,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/event_stream-{{ version }}.tar.gz
-  sha256: 823dada12821552c7a82ebd47e4a279079dc6693cb1b86c64b6f857459b99d9e
-  patches:
-    - vendor-npy2-compat.patch
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/event_stream-{{ version }}.tar.gz
+    sha256: 823dada12821552c7a82ebd47e4a279079dc6693cb1b86c64b6f857459b99d9e
+  - path: npy_2_compat.h
+    folder: python
 
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
